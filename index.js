@@ -1,8 +1,8 @@
 let exec = require('child_process').exec;
 var request = require("request");
 
-console.time('nmap -sn');
-let c1 = exec('nmap -sn 192.168.1.0-255', parseResult);
+console.time('nmap -sP');
+let c1 = exec('sudo nmap -sP 192.168.1.0-255', parseResult);
 
 //DEBUG
 let repl = require('repl');
@@ -10,13 +10,13 @@ let repl = require('repl');
 function parseResult(err, stdout) {
 	if (err) throw err;
 
-	console.timeEnd('nmap -sn');
+	console.timeEnd('nmap -sP');
 
 	let result = require(`${__dirname}/parse-report`)(stdout.toString());
 
 	// repl.start('>').context.result = result;
-	// console.log(result.devices[0]);
-	updateDb(result.devices);
+	console.log(result);
+	// updateDb(result.devices);
 }
 
 
@@ -24,7 +24,7 @@ function updateDb(result) {
 	console.log(JSON.stringify(result));
 	var options = {
 		method: 'POST',
-		url: 'http://localhost:8000/device/update',
+		url: 'https://tinker.press/manage-devices-in-range/device/update',
 		headers: {
 			'cache-control': 'no-cache',
 			'content-type': 'multipart/form-data; boundary=---011000010111000001101001'

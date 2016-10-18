@@ -49,6 +49,7 @@
 module.exports = function parse(stdout){
 	let os = require('os');
 	let arr = stdout.split(os.EOL);
+	console.log(arr);
 	arr.shift();
 	// console.log(arr[0]); //title
 	let result = {};
@@ -67,17 +68,21 @@ module.exports = function parse(stdout){
 			devices.push({});
 
 		let device = devices[i];
-		if(pos == 0)
+		if(pos == 0){
+			// let arr = val.replace('Nmap scan report for ', '').split(' ');
+			// device.name = arr[0];
+			// device.ip = arr[1].replace(/\(|\)/g, '');
 			device.ip = val.replace('Nmap scan report for ', '');
+		}
 
 		if(pos == 2){
 			let arr = val.replace('MAC Address: ', '').split(' ');
 			device.mac = arr[0];
-			device.manufacturer = arr[1].replace('(', '').replace(')', '');
+			device.manufacturer = arr[1].replace(/\(|\)/g, '');
 		}
 
 	});
-
+	console.log(devices);
 	//the last point is info of the computer run scan
 	devices.pop();
 	devices.pop();

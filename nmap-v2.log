@@ -1,0 +1,53 @@
+
+Starting Nmap 6.47 ( http://nmap.org ) at 2016-10-18 09:07 ICT
+Nmap scan report for 192.168.1.49
+Host is up (0.11s latency).
+MAC Address: 00:D0:CB:00:00:05 (Dasan CO.)
+Nmap scan report for 192.168.1.50
+Host is up (0.082s latency).
+MAC Address: B8:E8:56:3C:DE:42 (Apple)
+Nmap scan report for 192.168.1.56
+Host is up (0.024s latency).
+MAC Address: 44:D9:E7:20:DB:40 (Unknown)
+Nmap scan report for 192.168.1.57
+Host is up (0.15s latency).
+MAC Address: B4:43:0D:B0:8A:2B (Broadlink)
+Nmap scan report for 192.168.1.59
+Host is up (0.15s latency).
+MAC Address: B4:43:0D:C3:F9:A3 (Broadlink)
+Nmap scan report for 192.168.1.61
+Host is up (0.15s latency).
+MAC Address: 70:3E:AC:E0:AF:A9 (Unknown)
+Nmap scan report for 192.168.1.65
+Host is up (0.15s latency).
+MAC Address: E0:9D:31:2A:FD:A0 (Intel Corporate)
+Nmap scan report for 192.168.1.72
+Host is up (0.15s latency).
+MAC Address: 5C:CF:7F:C1:E8:75 (Unknown)
+Nmap scan report for 192.168.1.73
+Host is up (0.15s latency).
+MAC Address: B4:43:0D:DA:EF:B7 (Broadlink)
+Nmap scan report for 192.168.1.89
+Host is up (0.15s latency).
+MAC Address: F8:32:E4:14:35:EF (Unknown)
+Nmap scan report for 192.168.1.90
+Host is up (0.27s latency).
+MAC Address: 2C:33:7A:24:2F:75 (Unknown)
+Nmap scan report for 192.168.1.92
+Host is up (0.15s latency).
+MAC Address: 10:BF:48:C0:85:B9 (Asustek Computer)
+Nmap scan report for 192.168.1.93
+Host is up (0.15s latency).
+MAC Address: A0:02:DC:58:8A:92 (Amazon Technologies)
+Nmap scan report for 192.168.1.98
+Host is up (0.15s latency).
+MAC Address: 58:63:56:B9:99:88 (Unknown)
+Nmap scan report for 192.168.1.100
+Host is up (0.15s latency).
+MAC Address: 04:69:F8:DC:01:E3 (Unknown)
+Nmap scan report for 192.168.1.111
+Host is up (0.13s latency).
+MAC Address: 00:0B:81:9E:A7:9B (Kaparel)
+Nmap scan report for 192.168.1.60
+Host is up.
+Nmap done: 256 IP addresses (17 hosts up) scanned in 4.04 seconds
