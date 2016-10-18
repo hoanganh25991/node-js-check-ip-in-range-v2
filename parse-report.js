@@ -80,6 +80,7 @@ module.exports = function parse(stdout){
 
 	//the last point is info of the computer run scan
 	devices.pop();
+	devices.pop();
 
 	result.devices = devices;
 

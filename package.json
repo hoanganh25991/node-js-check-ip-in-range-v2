@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "libnmap": "^0.2.33",
-    "node-libnmap": "^0.2.15"
+    "node-libnmap": "^0.2.15",
+    "request": "^2.75.0"
   }
 }
