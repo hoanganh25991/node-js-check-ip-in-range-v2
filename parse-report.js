@@ -83,8 +83,13 @@ module.exports = function parse(stdout){
 
 	});
 	console.log(devices);
-	//the last point is info of the computer run scan
+	//remove "" just blank
 	devices.pop();
+	
+	// let lastDevice = devices[devices.length - 1];
+	// lastDevice.mac = `Unknown-${new Date().getTime()}`;
+	// lastDevice.manufacturer = null;
+	//the last point is info of the computer run scan
 	devices.pop();
 
 	result.devices = devices;
