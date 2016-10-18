@@ -4,7 +4,8 @@
   "description": "node-js-check-ip-in-range-v2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "author": "Anh Le Hoang",
   "license": "MIT",
