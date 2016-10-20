@@ -63,7 +63,8 @@ ${data}
 -------------res body--------------
 ${body}
 
-LOG AT: ${new Date().toString()}`;
+LOG AT: ${new Date().toString()}
+`;
 //what we log is there
 		fs.appendFile(logFileName, content, ()=>{
 			console.log('log writen');
