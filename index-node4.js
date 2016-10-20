@@ -4,24 +4,24 @@ const END_RECORD_TIME = 23; //6h
 
 var request = require("request");
 
-let gateway = '192.168.1.0-255';
+var gateway = '192.168.1.0-255';
 if(process.argv[2])
 	gateway = process.argv[2];
-let cmd = `sudo nmap -sP ${gateway}`;
+var cmd = `sudo nmap -sP ${gateway}`;
 
 /**
  * MAIN LOGIC, exec nmap command, then post data to server
  * @return {[type]} [description]
  */
-let pingRoom = function(){
-	let hour = new Date().getHours();
+var pingRoom = function(){
+	var hour = new Date().getHours();
 	if(hour >= START_RECORD_TIME && hour <= END_RECORD_TIME){
-		let exec = require('child_process').exec;
-		let c1 = exec(cmd, parseResult);
+		var exec = require('child_process').exec;
+		var c1 = exec(cmd, parseResult);
 	}
 };
 
-let interval = setInterval(pingRoom, INTERVAL_PING_ROOM);
+var interval = setInterval(pingRoom, INTERVAL_PING_ROOM);
 
 process.on('exit', ()=>{
 	console.log('bye-bye');
@@ -31,15 +31,15 @@ process.on('exit', ()=>{
 function parseResult(err, stdout) {
 	if (err) throw err;
 
-	let result = require(`${__dirname}/parse-report-node4`)(stdout.toString());
+	var result = require(`${__dirname}/parse-report-node4`)(stdout.toString());
 	updateDb(result.devices);
 }
 
-let fs = require('fs');
-let logFileName = 'req.log';
+var fs = require('fs');
+var logFileName = 'req.log';
 
 function updateDb(result) {
-	let data = JSON.stringify(result);
+	var data = JSON.stringify(result);
 	console.log(data);
 
 	var options = {
@@ -56,8 +56,8 @@ function updateDb(result) {
 		if (error) throw new Error(error);
 
 		console.log(body);
-//content templet to log
-		let content =
+//content tempvar to log
+		var content =
 `------------req data--------------
 ${data}
 -------------res body--------------
