@@ -1,11 +1,20 @@
-let exec = require('child_process').exec;
 var request = require("request");
 
+let gateway = '192.168.1.0-255';
+if(process.argv[2])
+	gateway = process.argv[2];
+let cmd = `sudo nmap -sP ${gateway}`;
+
 console.time('nmap -sP');
-let c1 = exec('sudo nmap -sP 192.168.1.0-255', parseResult);
+
+let pingRoom = function(){
+	let exec = require('child_process').exec;
+	let c1 = exec(cmd, parseResult);
+};
+
 
 //DEBUG
-let repl = require('repl');
+// let repl = require('repl');
 
 function parseResult(err, stdout) {
 	if (err) throw err;
@@ -15,8 +24,8 @@ function parseResult(err, stdout) {
 	let result = require(`${__dirname}/parse-report`)(stdout.toString());
 
 	// repl.start('>').context.result = result;
-	console.log(result);
-	// updateDb(result.devices);
+	// console.log(result);
+	updateDb(result.devices);
 }
 
 
