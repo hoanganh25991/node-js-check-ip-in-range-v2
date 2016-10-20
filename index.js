@@ -35,23 +35,38 @@ function parseResult(err, stdout) {
 	updateDb(result.devices);
 }
 
+let fs = require('fs');
+let logFileName = 'req.log';
+
 function updateDb(result) {
-	console.log(JSON.stringify(result));
+	let data = JSON.stringify(result);
+	console.log(data);
+
 	var options = {
 		method: 'POST',
-		url: 'https://tinker.press/manage-devices-in-range/device/update',
+		url: 'https://tinker.press/manage-devices-on-network/device/update',
 		headers: {
 			'cache-control': 'no-cache',
 			'content-type': 'multipart/form-data; boundary=---011000010111000001101001'
 		},
-		formData: {
-			data: JSON.stringify(result)
-		}
+		formData: {data}
 	};
 
 	request(options, function(error, response, body) {
 		if (error) throw new Error(error);
 
 		console.log(body);
+//content templet to log
+		let content =
+`------------req data--------------
+${data}
+-------------res body--------------
+${body}
+
+LOG AT: ${new Date().toString()}`;
+//what we log is there
+		fs.appendFile(logFileName, content, ()=>{
+			console.log('log writen');
+		});
 	});
 }
