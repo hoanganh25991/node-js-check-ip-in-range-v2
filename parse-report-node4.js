@@ -1,4 +1,3 @@
-"user-strict";
 module.exports = function parse(stdout){
 	let os = require('os');
 	let arr = stdout.split(os.EOL);

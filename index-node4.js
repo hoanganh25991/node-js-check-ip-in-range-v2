@@ -1,4 +1,3 @@
-"user-strict";
 const INTERVAL_PING_ROOM = 270000;
 const START_RECORD_TIME = 6; //6h
 const END_RECORD_TIME = 23; //6h
@@ -32,7 +31,7 @@ process.on('exit', ()=>{
 function parseResult(err, stdout) {
 	if (err) throw err;
 
-	let result = require(`${__dirname}/parse-report`)(stdout.toString());
+	let result = require(`${__dirname}/parse-report-node4`)(stdout.toString());
 	updateDb(result.devices);
 }
 
