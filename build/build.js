@@ -1,6 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (process,__dirname){
-'use strict';
+"use strict";
+"user-strict";
 
 var INTERVAL_PING_ROOM = 270000;
 var START_RECORD_TIME = 6; //6h
@@ -10,7 +11,7 @@ var request = require("request");
 
 var gateway = '192.168.1.0-255';
 if (process.argv[2]) gateway = process.argv[2];
-var cmd = 'sudo nmap -sP ' + gateway;
+var cmd = "sudo nmap -sP " + gateway;
 
 /**
  * MAIN LOGIC, exec nmap command, then post data to server
@@ -34,7 +35,7 @@ process.on('exit', function () {
 function parseResult(err, stdout) {
 	if (err) throw err;
 
-	var result = require(__dirname + '/parse-report')(stdout.toString());
+	var result = require(__dirname + "/parse-report")(stdout.toString());
 	updateDb(result.devices);
 }
 
@@ -60,7 +61,7 @@ function updateDb(result) {
 
 		console.log(body);
 		//content templet to log
-		var content = '------------req data--------------\n' + data + '\n-------------res body--------------\n' + body + '\n\nLOG AT: ' + new Date().toString() + '\n';
+		var content = "------------req data--------------\n" + data + "\n-------------res body--------------\n" + body + "\n\nLOG AT: " + new Date().toString() + "\n";
 		//what we log is there
 		fs.appendFile(logFileName, content, function () {
 			console.log('log writen');
