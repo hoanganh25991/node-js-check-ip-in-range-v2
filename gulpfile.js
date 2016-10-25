@@ -7,7 +7,7 @@ var watchify = require('watchify');
 var babel = require('babelify');
 
 function compile(watch) {
-  var bundler = watchify(browserify('./index.js', { debug: true, node: true }).transform(babel));
+  var bundler = watchify(browserify('./index.js', { debug: true, default: {node: true} }).transform(babel));
 
   function rebundle() {
     bundler.bundle()
